@@ -163,14 +163,10 @@ export default function LoginComponent() {
       <br />
       <h1
         className="text-center"
-        style={{
-          backgroundColor: "#333399",
-          color: "#ffffff",
-          padding: "10px",
-        }}
       >
-        HEXAAUTH LOGIN{" "}
+        MS CLUB FACE AUTHENTICATOR - LOGIN
       </h1>
+      <hr/>
       <br />
       <div className="row">
         <div className="col-md-6 DestopView">

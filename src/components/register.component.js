@@ -153,14 +153,10 @@ export default function RegisterComponent() {
       <br />
       <h1
         className="text-center"
-        style={{
-          backgroundColor: "#333399",
-          color: "#ffffff",
-          padding: "10px",
-        }}
       >
-        HEXAAUTH REGISTER
+        MS CLUB FACE AUTHENTICATOR - REGISTER
       </h1>
+      <hr/>
       <br />
       <div className="row">
         <div className="col-md-6 DestopView">
