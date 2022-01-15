@@ -18,11 +18,9 @@ export default function RegisterComponent() {
 
   //states for send image to firebase
 
-  const [imageURL, setImageURL] = useState("");
   const [uploadPercentage, setuploadPercentage] = useState(0);
 
   //states for send backend data
-  const [userId, setuserId] = useState("");
   const [userName, setuserName] = useState("");
   const [StateOfProcess, setStateOfProcess] = useState("");
 
@@ -69,7 +67,6 @@ export default function RegisterComponent() {
             .getDownloadURL()
             .then((urlFirebase) => {
               console.log("Image Url is = " + urlFirebase);
-              setImageURL(urlFirebase);
 
               const config = {
                 headers: {
@@ -94,7 +91,7 @@ export default function RegisterComponent() {
                     "Response for LargeFaceList is = " +
                       response.data.persistedFaceId
                   );
-                  setuserId(response.data.persistedFaceId);
+
                   //alert("Image added to Large Face List");
                   setStateOfProcess("Processing...");
 
@@ -191,7 +188,7 @@ export default function RegisterComponent() {
                 <>
                   {" "}
                   <div class="form-group">
-                    <img src={imgSrc} style={{ width: "300px" }} />{" "}
+                    <img src={imgSrc} style={{ width: "300px" }} alt="face-image"/>{" "}
                   </div>
                   <br />
                   <div class="form-group">

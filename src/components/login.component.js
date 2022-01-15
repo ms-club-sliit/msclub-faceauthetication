@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
 import { storage } from "../firebase";
@@ -18,11 +18,9 @@ export default function LoginComponent() {
 
   //states for send image to firebase
 
-  const [imageURL, setImageURL] = useState("");
   const [uploadPercentage, setuploadPercentage] = useState(0);
 
   //states for send backend data
-  const [userId, setuserId] = useState("");
   const [StateOfProcess, setStateOfProcess] = useState("");
 
   //method for capture an image Destop
@@ -68,7 +66,6 @@ export default function LoginComponent() {
             .getDownloadURL()
             .then((urlFirebase) => {
               console.log("Image Url is = " + urlFirebase);
-              setImageURL(urlFirebase);
 
               const config = {
                 headers: {
@@ -92,7 +89,6 @@ export default function LoginComponent() {
                   console.log(
                     "Response for face detect is = " + response.data[0].faceId
                   );
-                  setuserId(response.data[0].faceId);
                   //alert("Face Detect Successfully");
                   setStateOfProcess("Processing Your Face.....");
 
@@ -198,7 +194,7 @@ export default function LoginComponent() {
                 <>
                   {" "}
                   <div class="form-group">
-                    <img src={imgSrc} style={{ width: "300px" }} />{" "}
+                    <img src={imgSrc} style={{ width: "300px" }} alt="img-face"/>{" "}
                   </div>
                   <br />
                   <br />
