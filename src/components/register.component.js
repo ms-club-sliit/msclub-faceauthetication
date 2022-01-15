@@ -188,7 +188,7 @@ export default function RegisterComponent() {
                 <>
                   {" "}
                   <div class="form-group">
-                    <img src={imgSrc} style={{ width: "300px" }} alt="face-image"/>{" "}
+                    <img src={imgSrc} style={{ width: "300px" }} alt={imgSrc}/>{" "}
                   </div>
                   <br />
                   <div class="form-group">
