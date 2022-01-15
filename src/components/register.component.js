@@ -75,7 +75,7 @@ export default function RegisterComponent() {
                 headers: {
                   "Content-Type": "application/json",
                   "Ocp-Apim-Subscription-Key":
-                    "a680691db6174916bb8819e75475a406",
+                    "f58a07582176480e9d753e31fe2c342c",
                 },
               };
 
@@ -85,7 +85,7 @@ export default function RegisterComponent() {
 
               axios
                 .post(
-                  "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/hexalist/persistedfaces?detectionModel=detection_01",
+                  "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/msclubmember/persistedfaces?detectionModel=detection_01",
                   newImageDetails,
                   config
                 )
@@ -112,14 +112,14 @@ export default function RegisterComponent() {
                       const configTrain = {
                         headers: {
                           "Ocp-Apim-Subscription-Key":
-                            "a680691db6174916bb8819e75475a406",
+                            "f58a07582176480e9d753e31fe2c342c",
                         },
                       };
                       //alert("User Details sent to the Database");
                       setStateOfProcess("Processing...");
                       axios
                         .post(
-                          "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/hexalist/train",
+                          "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/msclubmember/train",
                           "",
                           configTrain
                         )

@@ -74,7 +74,7 @@ export default function LoginComponent() {
                 headers: {
                   "Content-Type": "application/json",
                   "Ocp-Apim-Subscription-Key":
-                    "a680691db6174916bb8819e75475a406",
+                    "f58a07582176480e9d753e31fe2c342c",
                 },
               };
 
@@ -98,7 +98,7 @@ export default function LoginComponent() {
 
                   const newUserLogin = {
                     faceId: response.data[0].faceId,
-                    largeFaceListId: "hexalist",
+                    largeFaceListId: "msclubmember",
                     maxNumOfCandidatesReturned: 10,
                     mode: "matchPerson",
                   };
