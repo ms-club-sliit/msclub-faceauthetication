@@ -105,7 +105,7 @@ export default function RegisterComponent() {
 
                   axios
                     .post(
-                      process.env.REACT_APP_BACKEND_URL + "/users/add",
+                      "https://msclub-faceautheticator.herokuapp.com/users/add",
                       newUserReg
                     )
                     .then(() => {
@@ -151,12 +151,8 @@ export default function RegisterComponent() {
     <div className="container">
       <NavbarComponent />
       <br />
-      <h1
-        className="text-center"
-      >
-        MS CLUB FACE AUTHENTICATOR - REGISTER
-      </h1>
-      <hr/>
+      <h1 className="text-center">MS CLUB FACE AUTHENTICATOR - REGISTER</h1>
+      <hr />
       <br />
       <div className="row">
         <div className="col-md-6 DestopView">

@@ -44,7 +44,8 @@ export default function UserComponent() {
             setStateOfProcess("Processing....");
             axios
               .delete(
-                process.env.REACT_APP_BACKEND_URL + "/users/delete/" + ProfileID
+                "https://msclub-faceautheticator.herokuapp.com/users/delete/" +
+                  ProfileID
               )
               .then(() => {
                 localStorage.removeItem("UserID");

@@ -117,8 +117,7 @@ export default function LoginComponent() {
 
                       axios
                         .get(
-                          process.env.REACT_APP_BACKEND_URL +
-                            "/users/" +
+                          "https://msclub-faceautheticator.herokuapp.com//users/" +
                             res.data[0].persistedFaceId
                         )
                         .then((res) => {
@@ -161,12 +160,8 @@ export default function LoginComponent() {
     <div className="container">
       <NavbarComponent />
       <br />
-      <h1
-        className="text-center"
-      >
-        MS CLUB FACE AUTHENTICATOR - LOGIN
-      </h1>
-      <hr/>
+      <h1 className="text-center">MS CLUB FACE AUTHENTICATOR - LOGIN</h1>
+      <hr />
       <br />
       <div className="row">
         <div className="col-md-6 DestopView">
