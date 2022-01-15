@@ -5,7 +5,9 @@ name: MS CLUB Production CI/CD
 
 on:
   push:
-    branches: [master]
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
