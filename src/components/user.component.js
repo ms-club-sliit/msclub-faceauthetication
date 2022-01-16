@@ -18,16 +18,15 @@ export default function UserComponent() {
   }
 
   function deleteAccount() {
-    console.log("Profile ID is " + ProfileID);
     const config = {
       headers: {
-        "Ocp-Apim-Subscription-Key": "a680691db6174916bb8819e75475a406",
+        "Ocp-Apim-Subscription-Key": "f58a07582176480e9d753e31fe2c342c",
       },
     };
 
     axios
       .delete(
-        `https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/hexalist/persistedfaces/${ProfileID}`,
+        `https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/msclubmember/persistedfaces/${ProfileID}`,
         config
       )
       .then(() => {
@@ -35,7 +34,7 @@ export default function UserComponent() {
         setStateOfProcess("Processing....");
         axios
           .post(
-            "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/hexalist/train",
+            "https://eastus.api.cognitive.microsoft.com/face/v1.0/largefacelists/msclubmember/train",
             "",
             config
           )
@@ -50,7 +49,6 @@ export default function UserComponent() {
               .then(() => {
                 localStorage.removeItem("UserID");
                 localStorage.removeItem("UserName");
-                //alert("Account Deleted");
                 setStateOfProcess("Account Deleted....");
                 window.location = "/";
               })

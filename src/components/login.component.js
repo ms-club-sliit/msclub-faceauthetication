@@ -27,14 +27,12 @@ export default function LoginComponent() {
   const captureDesktop = React.useCallback(() => {
     const imageSrc = webcamRefDesktop.current.getScreenshot();
     setImgSrc(imageSrc);
-    //console.log(imageSrc);
   }, [webcamRefDesktop, setImgSrc]);
 
   //method for capture an image Mobile
   const captureMobile = React.useCallback(() => {
     const imageSrc = webcamRefMobile.current.getScreenshot();
     setImgSrc(imageSrc);
-    //console.log(imageSrc);
   }, [webcamRefMobile, setImgSrc]);
 
   async function uploadImage(e) {
@@ -56,7 +54,7 @@ export default function LoginComponent() {
         },
         (error) => {
           //error function
-          console.log(error);
+          alert("Something went wrong");
         },
         () => {
           //complete function
@@ -65,8 +63,6 @@ export default function LoginComponent() {
             .child(fileName)
             .getDownloadURL()
             .then((urlFirebase) => {
-              console.log("Image Url is = " + urlFirebase);
-
               const config = {
                 headers: {
                   "Content-Type": "application/json",
@@ -86,12 +82,7 @@ export default function LoginComponent() {
                   config
                 )
                 .then(async (response) => {
-                  console.log(
-                    "Response for face detect is = " + response.data[0].faceId
-                  );
-                  //alert("Face Detect Successfully");
                   setStateOfProcess("Processing Your Face.....");
-
                   const newUserLogin = {
                     faceId: response.data[0].faceId,
                     largeFaceListId: "msclubmember",
@@ -106,20 +97,14 @@ export default function LoginComponent() {
                       config
                     )
                     .then((res) => {
-                      console.log(res.data[0].persistedFaceId);
-
-                      //alert("Face Verify Successfully");
                       setStateOfProcess("Please Wait...");
-
                       axios
                         .get(
                           "https://msclub-faceautheticator.herokuapp.com/users/" +
                             res.data[0].persistedFaceId
                         )
                         .then((res) => {
-                          console.log(res.data.userName);
                           if (!res.data) {
-                            //alert("Authentication Failed..Try Again");
                             setStateOfProcess(
                               "Authentication Failed..Try Again..."
                             );
@@ -130,14 +115,12 @@ export default function LoginComponent() {
                           }
                         })
                         .catch(() => {
-                          //alert("Authentication Failed..Try Again");
                           setStateOfProcess(
                             "Authentication Failed..Try Again..."
                           );
                         });
                     })
                     .catch(() => {
-                      //alert("Authentication Failed..Try Again");
                       setStateOfProcess("Authentication Failed..Try Again...");
                     });
                 })

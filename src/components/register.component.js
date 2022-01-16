@@ -28,14 +28,12 @@ export default function RegisterComponent() {
   const captureDesktop = React.useCallback(() => {
     const imageSrc = webcamRefDesktop.current.getScreenshot();
     setImgSrc(imageSrc);
-    //console.log(imageSrc);
   }, [webcamRefDesktop, setImgSrc]);
 
   //method for capture an image Mobile
   const captureMobile = React.useCallback(() => {
     const imageSrc = webcamRefMobile.current.getScreenshot();
     setImgSrc(imageSrc);
-    //console.log(imageSrc);
   }, [webcamRefMobile, setImgSrc]);
 
   function uploadImage(e) {
@@ -57,7 +55,7 @@ export default function RegisterComponent() {
         },
         (error) => {
           //error function
-          console.log(error);
+          alert("Something went wrong");
         },
         () => {
           //complete function
@@ -66,8 +64,6 @@ export default function RegisterComponent() {
             .child(fileName)
             .getDownloadURL()
             .then((urlFirebase) => {
-              console.log("Image Url is = " + urlFirebase);
-
               const config = {
                 headers: {
                   "Content-Type": "application/json",
@@ -87,11 +83,7 @@ export default function RegisterComponent() {
                   config
                 )
                 .then((response) => {
-                  console.log(
-                    "Response for LargeFaceList is = " +
-                      response.data.persistedFaceId
-                  );
-
+                  
                   //alert("Image added to Large Face List");
                   setStateOfProcess("Processing...");
 
