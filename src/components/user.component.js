@@ -67,11 +67,25 @@ export default function UserComponent() {
 
   return (
     <div className="container">
-      <div style={{ margin: "10% 25%" }}>
+      <div className="row mt-5">
+        <div className="col-md-12 text-center">
+        <img
+          src="/assets/ms_club_logo.png"
+          alt="ms-club-logo"
+          className="navbar-logo"
+          width="200px"
+        />
+        </div>
+        <div className="col-md-12  text-center">
+        <h1>MS CLUB FACE AUTHENTICATOR</h1>
+        </div>
+
+      </div>
+      <hr/>
+      <div className="text-center">
         <div className="container">
           <h3 style={{ color: "red" }}>{StateOfProcess}</h3>
         </div>
-        <h1>Login Successful</h1>
         <br />
         <h1>Hello {UserName}</h1>
         <br />
