@@ -113,7 +113,7 @@ export default function LoginComponent() {
 
                       axios
                         .get(
-                          "https://msclub-faceautheticator.herokuapp.com//users/" +
+                          "https://msclub-faceautheticator.herokuapp.com/users/" +
                             res.data[0].persistedFaceId
                         )
                         .then((res) => {
