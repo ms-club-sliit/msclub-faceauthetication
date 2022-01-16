@@ -67,7 +67,7 @@ export default function LoginComponent() {
                 headers: {
                   "Content-Type": "application/json",
                   "Ocp-Apim-Subscription-Key":
-                    "f58a07582176480e9d753e31fe2c342c",
+                   process.env.REACT_APP_OCP_KEY,
                 },
               };
 
@@ -100,8 +100,7 @@ export default function LoginComponent() {
                       setStateOfProcess("Please Wait...");
                       axios
                         .get(
-                          "https://msclub-faceautheticator.herokuapp.com/users/" +
-                            res.data[0].persistedFaceId
+                          `${process.env.REACT_APP_BACKEND_URL}/users/${res.data[0].persistedFaceId}`             
                         )
                         .then((res) => {
                           if (!res.data) {

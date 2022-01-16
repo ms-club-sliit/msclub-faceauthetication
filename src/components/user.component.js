@@ -20,7 +20,7 @@ export default function UserComponent() {
   function deleteAccount() {
     const config = {
       headers: {
-        "Ocp-Apim-Subscription-Key": "f58a07582176480e9d753e31fe2c342c",
+        "Ocp-Apim-Subscription-Key":  process.env.REACT_APP_OCP_KEY,
       },
     };
 
@@ -30,7 +30,6 @@ export default function UserComponent() {
         config
       )
       .then(() => {
-        //alert("Face Deleted from Large Face List Successfully");
         setStateOfProcess("Processing....");
         axios
           .post(
@@ -39,11 +38,10 @@ export default function UserComponent() {
             config
           )
           .then(() => {
-            //alert("Dataset Trained Successfully");
             setStateOfProcess("Processing....");
             axios
               .delete(
-                "https://msclub-faceautheticator.herokuapp.com/users/delete/" +
+                `${process.env.REACT_APP_BACKEND_URL}/users/delete/` +
                   ProfileID
               )
               .then(() => {

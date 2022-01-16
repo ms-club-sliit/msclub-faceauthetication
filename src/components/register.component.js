@@ -68,7 +68,7 @@ export default function RegisterComponent() {
                 headers: {
                   "Content-Type": "application/json",
                   "Ocp-Apim-Subscription-Key":
-                    "f58a07582176480e9d753e31fe2c342c",
+                    process.env.REACT_APP_OCP_KEY,
                 },
               };
 
@@ -94,14 +94,14 @@ export default function RegisterComponent() {
 
                   axios
                     .post(
-                      "https://msclub-faceautheticator.herokuapp.com/users/add",
+                      `${process.env.REACT_APP_BACKEND_URL}/users/add`,
                       newUserReg
                     )
                     .then(() => {
                       const configTrain = {
                         headers: {
                           "Ocp-Apim-Subscription-Key":
-                            "f58a07582176480e9d753e31fe2c342c",
+                            process.env.REACT_APP_OCP_KEY,
                         },
                       };
                       //alert("User Details sent to the Database");
